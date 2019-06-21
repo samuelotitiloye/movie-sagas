@@ -11,10 +11,11 @@ app.use(express.static('build'));
 
 /** ---------- ROUTES ---------- **/
 // app.use('/api/movies', movieRouter);
-app.get('/', (req, res) =>{
+app.get('/api/movies', (req, res) =>{
     const queryText = 'SELECT *  FROM movies';
     pool.query(queryText)
     .then((result) =>{
+        console.log(result.rows);
         res.send(result.rows);
     }).catch((error)=>{
         console.log('error completing SELECT movies query', error);
