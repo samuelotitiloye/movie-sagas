@@ -15,18 +15,27 @@ class movies extends Component {
         this.movies();
     }
 
+    // handleClick = () => {
+    //     console.log('clicked a movie');
+    //     this.props.history.push('/Details')
+    //     this.props.dispatch({type:'', payload:this.state})
+    // }
+
+    // {this.props.history.push('/details')}
+
     render() {
         return (
             ///map through my array to get movies on the dom
             // stringify to show what is in the reduxState
+            // grab all the column names from the database and include in the map
+            // add img src to the map
             <div>
+                <button onClick={()=>{this.props.history.push('/details')}}>Details</button>
+                <button onClick={()=>{this.props.history.push('/edit')}}>Edit</button>
                 <>
                 {this.props.reduxState.movies.map(movie => {return <>
-                <li key={movie.id}>{movie.title}<br/>{movie.poster}<br/>{movie.description}</li>
-                <img src={movie.poster} alt="database movie posters" /> </> })};
-                </>
-                <>
-                {JSON.stringify(this.props.reduxState, null, 2)};
+                <li key={movie.id}>{movie.title}<br/>{movie.description}</li>
+                <img src={movie.poster} alt="database movie posters" /> </> })}
                 </>
             </div>
         )
@@ -41,15 +50,5 @@ const mapReduxStateToProps = reduxState => ({
 export default connect (mapReduxStateToProps)(movies);
 
 // now that the movies show up on the dom..now what?
-//
-
-
-
-
-
-
-
-
-
-
-
+// display movie posters on the dom
+// then create a post route??
