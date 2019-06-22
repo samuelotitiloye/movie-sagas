@@ -26,7 +26,9 @@ app.get('/api/movies', (req, res) =>{
 
 
 // app.use('/api/genres', genreRouter);
-app
+app.get('/api/genres', (req, res)=>{
+    console.log('getting genres');
+})
 
 
 /** ---------- START SERVER ---------- **/
