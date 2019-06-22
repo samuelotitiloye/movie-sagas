@@ -28,7 +28,17 @@ app.get('/api/movies', (req, res) =>{
 // app.use('/api/genres', genreRouter);
 app.get('/api/genres', (req, res)=>{
     console.log('getting genres');
-})
+    //qeury request to the database 
+    const queryText = 'SELECT * FROM "genres";';
+    pool.query(queryText)
+    .then((result)=>{
+        console.log(result.rows);
+        res.send(result.rows);    
+    }).catch((error)=>{
+        console.log('error completing SELECT genre query', error);
+        res.sendStatus(500);
+    });
+});
 
 
 /** ---------- START SERVER ---------- **/
