@@ -12,6 +12,7 @@ app.use(express.static('build'));
 /** ---------- ROUTES ---------- **/
 // app.use('/api/movies', movieRouter);
 app.get('/api/movies', (req, res) =>{
+    //query request to the database -  store
     const queryText = 'SELECT *  FROM movies';
     pool.query(queryText)
     .then((result) =>{
@@ -25,6 +26,7 @@ app.get('/api/movies', (req, res) =>{
 
 
 // app.use('/api/genres', genreRouter);
+app
 
 
 /** ---------- START SERVER ---------- **/

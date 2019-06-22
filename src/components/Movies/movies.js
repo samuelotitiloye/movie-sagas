@@ -7,25 +7,27 @@ import {connect} from 'react-redux';
 class movies extends Component {
     movies = () => {
         // console.log('movies');
-        
+        //dispatch acton with a type to run my saga that will trigger the  generator function that holds the type's data
         this.props.dispatch ({type:'FETCH_MOVIES'});
     }
-
+    // document on ready function to trigger dispatch action
     componentDidMount () {
         this.movies();
     }
 
     render() {
         return (
-            //map through my array to get movies on the dom
-
-            // stringify to show what i have in the reduxState
-            <>
-            {JSON.stringify(this.props.reduxState, null, 2)} 
-            </>
+            <div>
+                <>
+                {this.props.reduxState.movies.map(movie => {return <li key={movie.id}>{movie.title}</li>})};
+                </>
+                <>
+                {JSON.stringify(this.props.reduxState, null, 2)};
+                </>
+            </div>
         )
     }
-}
+};
 
 
 const mapReduxStateToProps = reduxState => ({
@@ -37,6 +39,8 @@ export default connect (mapReduxStateToProps)(movies);
 
 
 
+// stringify to show what is in the reduxState
+//map through my array to get movies on the dom}
 
 
 
@@ -46,18 +50,4 @@ export default connect (mapReduxStateToProps)(movies);
 
 
 
-// // import React, { Component } from 'react';
-// // import './App.css';
 
-// // class App extends Component {
-// //   // Renders the entire app on the DOM
-// //   render() {
-// //     return (
-// //       <div className="App">
-// //         <p>Empty Page</p>
-// //       </div>
-// //     );
-// //   }
-// // }
-
-// // export default App;

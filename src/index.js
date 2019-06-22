@@ -16,7 +16,8 @@ import axios from 'axios';
 
 // Create the rootSaga generator function
 function* rootSaga() {
-    yield takeEvery('FETCH_MOVIES', fetchMovies)
+    yield takeEvery('FETCH_MOVIES', fetchMovies);
+    // yield takeEvery('ADD_MOVIES', postMovies);
 }
 
 // axios client side get request
@@ -26,11 +27,24 @@ function* fetchMovies (){
         const movieResponse = yield axios.get('/api/movies')
         // yield axios.get('/')
         yield dispatch ({type:'SET_MOVIES', payload:movieResponse.data});
-        console.log('end of fetch movies');
+        console.log('end of fetch movies request');
     }catch(error){
         console.log(error);
     }
 } 
+
+// axios client side post movies request
+// function* postMovies (){
+//     try {
+//         console.log('hit post movies');
+//         const postResponse = yield axios.post('/api/movies', action.payload);
+//         //trigger the get request function
+//         yield dispatch({type:'ADD_MOVIES'});
+//         console.log('end of postMovies request');   
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
 
 
 // Create sagaMiddleware
