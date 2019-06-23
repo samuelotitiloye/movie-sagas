@@ -36,9 +36,9 @@ handleCancel = () => {
         <button onClick ={this.handleSubmit}>Submit</button>
         <input value={this.state.editMovie}  id='editMovie' onChange={this.handleChange} placeholder="movie title"></input>
         <input value={this.state.movieTitle}  id ='movieTitle' onChange={this.handleChange} placeholder="edit details"></input>
-        <pre>
-        {JSON.stringify(this.props.reduxState, null, 2)}
-        </pre>
+        {/* <pre>
+        {JSON.stringify(this.props.reduxState.singleMovie, null, 2)}
+        </pre> */}
       </div>
     );
   }

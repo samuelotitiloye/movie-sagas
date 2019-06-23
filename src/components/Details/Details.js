@@ -10,7 +10,7 @@ class Details extends Component {
 
     handleClick = () => {
         console.log('take me back home');
-        this.props.history('/')
+        this.props.history.push('/')
         // this.props.dispatch({type:'FETCH_MOVIES'})
     }
     handleClickEdit = () => {

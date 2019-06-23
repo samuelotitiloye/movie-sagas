@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-
+// this component does stuff
 
 class MovieItem extends Component {
     // Renders the entire app on the DOM
