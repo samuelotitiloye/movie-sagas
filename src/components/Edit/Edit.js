@@ -20,8 +20,10 @@ handleChange = (event) => {
 }
 //this targets the save button action
 handleSubmit = () =>{
-  console.log('in handleSave', this.state);
+  console.log('in handleSubmit', this.state);
     this.props.dispatch({type:'UPDATE_MOVIE', payload:this.state})
+    this.props.history.push('/details')
+    this.props.dispatch({type:'FETCH_MOVIES'});
 }
 
 //this handles the calcel button acion
@@ -35,8 +37,8 @@ handleCancel = () => {
       <div className="Edit">
         <Link to={'/details'}><button onClick ={this.handleCancel}>Cancel</button></Link>
         <button onClick ={this.handleSubmit}>Submit</button>
-        <input value={this.state.title}  id='title' onChange={this.handleChange} placeholder="movie title"></input>
-        <input value={this.state.description}  id ='description' onChange={this.handleChange} placeholder="edit details"></input>
+        <input value={this.state.title} id='title' onChange={this.handleChange} placeholder="movie title"></input>
+        <input value={this.state.description} id ='description' onChange={this.handleChange} placeholder="edit details"></input>
         <pre>
         {JSON.stringify(this.props.reduxState.singleMovie, null, 2)}
         </pre> 
