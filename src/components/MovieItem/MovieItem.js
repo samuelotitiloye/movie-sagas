@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom';
 class MovieItem extends Component {
     // Renders the entire app on the DOM
      handleClick = () => {
-         console.log('clicking image');
+         console.log('clicking image', this.props.movie.id);
          this.props.dispatch({type:'SINGLE_MOVIE', payload:this.props.movie.id})
          
         //  this.props.history.push('/details');

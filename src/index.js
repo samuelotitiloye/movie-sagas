@@ -9,7 +9,9 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 // Import saga middleware
 import createSagaMiddleware from 'redux-saga';
+//import takeEvery, and declare put as dispatch so i can use dispatch instead of put
 import { takeEvery, put as dispatch } from 'redux-saga/effects';
+//import axios  - which allows me to make server side CRUD requests
 import axios from 'axios';
 // import {connect} from 'react-redux';
 
@@ -51,10 +53,10 @@ function* fetchMovies (){
 function* fetchGenre  () {
     try {
         console.log('hit fetch genre');
-        const genreResponse = yield axios.get('/api/genre')
+        const genreResponse = yield axios.get('/api/genres')
         //yeild axios
         yield dispatch ({type:'SET_TAGS', payload:genreResponse.data});
-        console.log('end of fetch genre reques');  
+        console.log('end of fetch genre request');  
     }catch(error){
         console.log(error);
     }
@@ -73,13 +75,13 @@ function* fetchGenre  () {
 //     }
 // }
 
-// create a new state
-const firstMovieState = [{
-    id:'',
-    title:'',
-    title:'',
-    description:'',
-}]
+// create a new variable for to hold initial state of movies before being clicked
+// const firstMovieState = [{
+//     id:'',
+//     title:'',
+//     title:'',
+//     description:'',
+// }]
 
 
 // Create sagaMiddleware
@@ -105,7 +107,7 @@ const genres = (state = [], action) => {
     }
 }
 
-// use to store SINGLE movie from the server
+// use to return SINGLE movie from the server
 const singleMovie = (state = [], action) =>{
     switch(action.type) {
         case 'SET_MOVIE':
