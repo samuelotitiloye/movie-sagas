@@ -10,29 +10,30 @@ class Details extends Component {
 
     handleClick = () => {
         console.log('take me back home');
+        // i needed to add push to the history in order to return to the home page
         this.props.history.push('/')
         // this.props.dispatch({type:'FETCH_MOVIES'})
     }
+
+    //this will route to the next page which is the Edit page
     handleClickEdit = () => {
         this.props.history.push('/edit');
     }
 
-    // <Link to='/'><button>Back to list</button></Link>
 
   render() {
-      console.log('inside movie details');
-      
+    console.log('inside movie details');
     return (
       <div className="Details">
         <Link to='/'/><button onClick={this.handleClick}>Back to List</button>
         <Link to='/'/><button onClick={this.handleClickEdit}>Edit</button>
-          <img src ={this.props.reduxState.singleMovie.poster} />
           {this.props.reduxState.singleMovie.title}
           {this.props.reduxState.singleMovie.description}
-          {this.props.reduxState.singleMovie.map(movie => 
-          {return  <MovieItem movie={movie} />})}
+          <img src ={this.props.reduxState.singleMovie.poster} />
+          {this.props.reduxState.genres.map(genre=><p>{genre.name}</p>)}
+          
           <pre>
-              {JSON.stringify(this.props.reduxState.singleMovie, null, 2)}
+              {JSON.stringify(this.props.reduxState.genres, null, 2)}
           </pre>
         </div>
     );
@@ -46,20 +47,20 @@ const mapReduxStateToProps = reduxState => ({
 
 export default connect (mapReduxStateToProps)(Details);
 
+
+
+// {this.props.reduxState.movies.map(movie => 
+//     {return  <MovieItem movie={movie} />})}
+
+
+
 /* {JSON.stringify(this.props.reduxState.singleMovie[0].title)}; */
 // class Details extends Component {
-
-//     render() {
-//       return (
-//         <div className="Details">
-//           <button>Back to List</button>
-//           <img src ={this.props.reduxState.singleMovie.poster} />
-//           {this.props.reduxState.singleMovie.title}
-//           {this.props.reduxState.singleMovie.description}
-//         </div>
-//       );
-//     }
-//   }
+//<img src ={this.props.reduxState.singleMovie.poster} />
+//{this.props.reduxState.singleMovie.title}
+//{this.props.reduxState.singleMovie.description}
+//    {this.props.reduxState.singleMovie.map(movie => 
+// {return  <MovieItem movie={movie} />})}      
 
 
 

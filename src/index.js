@@ -21,21 +21,33 @@ function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMovies);
     yield takeEvery('ADD_GENRE', fetchGenre);
     yield takeEvery('SINGLE_MOVIE', movieDetail)
+    yield takeEvery('UPDATE_MOVIE', updateMovie)
 }
 
+
+
+function* updateMovie(action){
+    console.log('trying to update');
+    yield axios.put('/api/update', action.payload) /// sending to the server
+}
 
 // this.props.dispatch({type:'SINGLE_MOVIE', payload:this.props.movie.id})
 
 function* movieDetail (action){
+    console.log(action.payload);
+    
     try {
         console.log('hit the movie detail');
-        const detailResponse = yield axios.get(`/api/movieDetail/${action.payload}`)
-        yield dispatch({type:'SET_MOVIE', payload:detailResponse.data});
+        yield dispatch({type:'SET_MOVIE', payload:action.payload})
+        const detailResponse = yield axios.get(`/api/movieDetail?id=${action.payload.id}`)// action.payload becomes req.query in the server side axios get request
+        yield dispatch({type:'SET_TAGS', payload:detailResponse.data});
         console.log('end of movie detail request');
     }catch(error){
         console.log(error);
     }
 }
+
+
 // axios client side get request
 function* fetchMovies (){
     try {
@@ -108,7 +120,7 @@ const genres = (state = [], action) => {
 }
 
 // use to return SINGLE movie from the server
-const singleMovie = (state = [], action) =>{
+const singleMovie = (state = {}, action) =>{
     switch(action.type) {
         case 'SET_MOVIE':
             return action.payload

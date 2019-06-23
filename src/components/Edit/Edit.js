@@ -7,8 +7,9 @@ import {Link} from 'react-router-dom';
 class Edit extends Component {
     // i need to create state because i have inputs that will change
 state = {
-    editMovie: '',
-    movieTitle:'',
+    title: '',
+    description:'',
+    id: this.props.reduxState.singleMovie.id
 }
 
 // i needed to spread state to keep what's in state then update when a value is inputed 
@@ -19,8 +20,8 @@ handleChange = (event) => {
 }
 //this targets the save button action
 handleSubmit = () =>{
-console.log('in handleSave', this.state);
-
+  console.log('in handleSave', this.state);
+    this.props.dispatch({type:'UPDATE_MOVIE', payload:this.state})
 }
 
 //this handles the calcel button acion
@@ -34,11 +35,11 @@ handleCancel = () => {
       <div className="Edit">
         <Link to={'/details'}><button onClick ={this.handleCancel}>Cancel</button></Link>
         <button onClick ={this.handleSubmit}>Submit</button>
-        <input value={this.state.editMovie}  id='editMovie' onChange={this.handleChange} placeholder="movie title"></input>
-        <input value={this.state.movieTitle}  id ='movieTitle' onChange={this.handleChange} placeholder="edit details"></input>
-        {/* <pre>
+        <input value={this.state.title}  id='title' onChange={this.handleChange} placeholder="movie title"></input>
+        <input value={this.state.description}  id ='description' onChange={this.handleChange} placeholder="edit details"></input>
+        <pre>
         {JSON.stringify(this.props.reduxState.singleMovie, null, 2)}
-        </pre> */}
+        </pre> 
       </div>
     );
   }

@@ -10,6 +10,16 @@ app.use(bodyParser.json()); // needed for angular requests
 app.use(express.static('build'));
 
 /** ---------- ROUTES ---------- **/
+//this will update our details page
+app.put('/api/update', (req, res)=>{
+    console.log('we are updating');
+    const queryText = `UPDATE "movies" SET "title"=$1, "description"=$2
+    WHERE "id"=$3;`;
+    const updateName = [req.body.title, req.body.description, req.body.id];
+    pool.query(queryText, updateName)
+    })
+
+
 // app.use('/api/movies', movieRouter);
 app.get('/api/movies', (req, res) =>{
     console.log('selecting movies');
@@ -42,11 +52,17 @@ app.get('/api/genres', (req, res)=>{
 });
 
 //this will get a single movie and detail then display on the details page
-app.get('/api/movieDetail/:id', (req, res)=>{
+app.get('/api/movieDetail/', (req, res)=>{
     console.log('getting details');
     //qeury request to the database 
-    const queryText = 'SELECT * FROM "movies" WHERE "id"=$1;';
-    pool.query(queryText, [req.params.id])
+    const queryText =`SELECT "genres"."name" 
+    FROM "movies" 
+    JOIN "movie_genre" 
+    ON "movies"."id" = "movie_genre"."movie_id"
+    JOIN "genres" 
+    ON "movie_genre"."genre_id" = "genres"."id"
+    WHERE "movies"."id"=$1;`;
+    pool.query(queryText, [req.query.id])
     .then((result)=>{
         console.log(result.rows);
         res.send(result.rows);    

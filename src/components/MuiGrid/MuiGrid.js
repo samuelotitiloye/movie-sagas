@@ -1,8 +1,15 @@
 import React, { Component} from 'react';
+import {connect } from 'react-redux';
+import Grid from '@material-ui/core/Grid';
 
 
 
 class MuiGrid extends Component {
+
+    handleClick = () => {
+        this.props.dispatch({type:'FETCH_MOVIES', payload: this.props.movie });
+    }
+
 render() {
     return (
         <Grid container justify="center">
@@ -19,7 +26,11 @@ render() {
         </Grid>
     );
 }
+}
 
+
+const mapReduxStateToProps = reduxState => ({reduxState});
+export default connect(mapReduxStateToProps)(MuiGrid);
 
 
 

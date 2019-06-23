@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 // import './App.css';
 import {connect} from 'react-redux';
 import MovieItem from '../MovieItem/MovieItem';
+import Grid from '@material-ui/core/Grid';
+
 
 
 //place client side get request in this component
@@ -25,16 +27,37 @@ class movies extends Component {
 
     render() {
         return (
+            <>
+            <Grid container justify='center'>
+                        <div>
+                            {/* <button onClick={()=>{this.props.history.push('/details')}}>Details</button>
+                            <button onClick={()=>{this.props.history.push('/edit')}}>Edit</button> */}
+                            {this.props.reduxState.movies.map(movie => 
+                            {return  <MovieItem movie={movie} />})}
+                        </div>
+            </Grid>
+
+                    {/* <Grid item xs={5}>
+                    <img
+                        src={this.props.movie.poster}
+                        onClick={this.handleClick}
+                        alt={this.props.movie.title} />
+                    </Grid> */}
+                    </>
+            // <Grid item>
+            
+            // </Grid>
+
             ///map through my array to get movies on the dom
             // stringify to show what is in the reduxState
             // grab all the column names from the database and include in the map
             // add img src to the map
-            <div>
-                {/* <button onClick={()=>{this.props.history.push('/details')}}>Details</button>
-                <button onClick={()=>{this.props.history.push('/edit')}}>Edit</button> */}
-                {this.props.reduxState.movies.map(movie => 
-                {return  <MovieItem movie={movie} />})}
-            </div>
+            // <div>
+            //     {/* <button onClick={()=>{this.props.history.push('/details')}}>Details</button>
+            //     <button onClick={()=>{this.props.history.push('/edit')}}>Edit</button> */}
+            //     {this.props.reduxState.movies.map(movie => 
+            //     {return  <MovieItem movie={movie} />})}
+            // </div>
         )
     }
 };
