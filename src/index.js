@@ -18,8 +18,22 @@ import axios from 'axios';
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMovies);
     yield takeEvery('ADD_GENRE', fetchGenre);
+    yield takeEvery('SINGLE_MOVIE', movieDetail)
 }
 
+
+// this.props.dispatch({type:'SINGLE_MOVIE', payload:this.props.movie.id})
+
+function* movieDetail (action){
+    try {
+        console.log('hit the movie detail');
+        const detailResponse = yield axios.get(`/api/movieDetail/${action.payload}`)
+        yield dispatch({type:'SET_MOVIE', payload:detailResponse.data});
+        console.log('end of movie detail request');
+    }catch(error){
+        console.log(error);
+    }
+}
 // axios client side get request
 function* fetchMovies (){
     try {
@@ -59,6 +73,14 @@ function* fetchGenre  () {
 //     }
 // }
 
+// create a new state
+const firstMovieState = [{
+    id:'',
+    title:'',
+    title:'',
+    description:'',
+}]
+
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
@@ -83,11 +105,22 @@ const genres = (state = [], action) => {
     }
 }
 
+// use to store SINGLE movie from the server
+const singleMovie = (state = [], action) =>{
+    switch(action.type) {
+        case 'SET_MOVIE':
+            return action.payload
+            default:
+                return state;
+    }
+}
+
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
+        singleMovie
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),

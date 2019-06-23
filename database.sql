@@ -42,3 +42,36 @@ VALUES
 ('Science Fiction'),
 ('Space-Opera'),
 ('Superhero');
+
+
+
+
+CREATE TABLE "movies_genres" (
+  "id" SERIAL PRIMARY KEY,
+  "movies_id" VARCHAR (80) NOT NULL,
+  "genre_id" VARCHAR (80) NOT NULL
+);
+
+DROP TABLE "movies_genres";
+
+CREATE TABLE "movie_genre" (
+"id" SERIAL PRIMARY KEY,
+"image_id" INT REFERENCES "movies",
+"genre_id" INT REFERENCES "genres");
+
+
+INSERT INTO "movie_genre" ("movie_id", "genre_id")
+VALUES (1,1), (1,3), (1,4), (2, 1), (3, 11), (3, 12);
+
+--SELECT * FROM "movies"
+--JOIN "movies_genres" ON "movies"."id"="movies_genres"."movies_id"
+--JOIN "genres" ON "genres"."id"="movies_genres"."genres_id";
+
+
+SELECT * FROM "movies" 
+JOIN "movie_genre" ON "movies"."id" = "movie_genre"."movie_id"
+JOIN "genres" ON "movie_genre"."genre_id" = "genres"."id";
+
+SELECT * FROM "movie_genre";
+
+SELECT * FROM "movies" WHERE "id"=2;

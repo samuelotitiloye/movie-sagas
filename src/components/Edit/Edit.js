@@ -4,10 +4,12 @@ import '../App/App.css';
 
 
 class Edit extends Component {
+    // i need to create state because i have inputs that will change
 state = {
     editMovie: '',
     movieTitle:'',
 }
+
 // i needed to spread state to keep what's in state then update when a value is inputed 
 handleChange = (event) => {
     this.setState ({
@@ -17,6 +19,7 @@ handleChange = (event) => {
 //this targets the save button action
 handleSave = () =>{
 console.log('in handleSave', this.state);
+
 }
 
 //this handles the calcel button acion

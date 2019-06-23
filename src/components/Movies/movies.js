@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 // import './App.css';
 import {connect} from 'react-redux';
+import MovieItem from '../MovieItem/MovieItem';
 
 
 //place client side get request in this component
@@ -10,18 +11,17 @@ class movies extends Component {
         //dispatch acton with a type to run my saga that will trigger the  generator function that holds the type's data
         this.props.dispatch ({type:'FETCH_MOVIES'});
     }
+
+    genre = () => {
+        this.props.dispatch({type:'ADD_GENRE'});
+    }
+
+
     // document on ready function to trigger dispatch action
     componentDidMount () {
         this.movies();
     }
 
-    // handleClick = () => {
-    //     console.log('clicked a movie');
-    //     this.props.history.push('/Details')
-    //     this.props.dispatch({type:'', payload:this.state})
-    // }
-
-    // {this.props.history.push('/details')}
 
     render() {
         return (
@@ -30,13 +30,12 @@ class movies extends Component {
             // grab all the column names from the database and include in the map
             // add img src to the map
             <div>
-                <button onClick={()=>{this.props.history.push('/details')}}>Details</button>
-                <button onClick={()=>{this.props.history.push('/edit')}}>Edit</button>
-                <>
-                {this.props.reduxState.movies.map(movie => {return <>
-                <li key={movie.id}>{movie.title}<br/>{movie.description}</li>
-                <img src={movie.poster} alt="database movie posters" /> </> })}
-                </>
+
+                {/* <button onClick={()=>{this.props.history.push('/details')}}>Details</button>
+                <button onClick={()=>{this.props.history.push('/edit')}}>Edit</button> */}
+                {this.props.reduxState.movies.map(movie => 
+                {return  <MovieItem movie={movie} />})}
+
             </div>
         )
     }
@@ -51,4 +50,7 @@ export default connect (mapReduxStateToProps)(movies);
 
 // now that the movies show up on the dom..now what?
 // display movie posters on the dom
-// then create a post route??
+// then create a genre server side route
+//then create a genre server side route
+// create edit page ....add buttons and inputs
+// create details page  ...
