@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import '../App/App.css';
+import {Link} from 'react-router-dom';
 
 
 class Edit extends Component {
@@ -17,7 +18,7 @@ handleChange = (event) => {
     });
 }
 //this targets the save button action
-handleSave = () =>{
+handleSubmit = () =>{
 console.log('in handleSave', this.state);
 
 }
@@ -31,8 +32,8 @@ handleCancel = () => {
   render() {
     return (
       <div className="Edit">
-        <button onClick ={this.handleCancel}>Cancel</button>
-        <button onClick ={this.handleSave}>Save</button>
+        <Link to={'/details'}><button onClick ={this.handleCancel}>Cancel</button></Link>
+        <button onClick ={this.handleSubmit}>Submit</button>
         <input value={this.state.editMovie}  id='editMovie' onChange={this.handleChange} placeholder="movie title"></input>
         <input value={this.state.movieTitle}  id ='movieTitle' onChange={this.handleChange} placeholder="edit details"></input>
         <pre>
