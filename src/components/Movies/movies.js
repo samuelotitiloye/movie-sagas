@@ -5,7 +5,6 @@ import MovieItem from '../MovieItem/MovieItem';
 // import Grid from '@material-ui/core/Grid';
 
 
-
 //place client side get request actions in this component
 class movies extends Component {
     movies = () => {
@@ -29,13 +28,13 @@ class movies extends Component {
         return (
             <>
                 {/* <Grid container justify='center'> */}
-                    {/* <Grid item xs={6}> */}
-                    <div>
-                        {/* <button onClick={()=>{this.props.history.push('/details')}}>Details</button>
+                {/* <Grid item xs={6}> */}
+                <div>
+                    {/* <button onClick={()=>{this.props.history.push('/details')}}>Details</button>
                             <button onClick={()=>{this.props.history.push('/edit')}}>Edit</button> */}
-                        {this.props.reduxState.movies.map(movie => { return <MovieItem movie={movie} /> })}
-                    </div>
-                    {/* </Grid> */}
+                    {this.props.reduxState.movies.map(movie => { return <MovieItem movie={movie} /> })}
+                </div>
+                {/* </Grid> */}
                 {/* </Grid> */}
 
                 {/* <Grid item xs={5}>

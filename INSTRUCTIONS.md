@@ -1,10 +1,4 @@
-This application will allow a user to interact with movies' website. Upon arriving at the sight there is a list of movies with different genres to select from. 
-The user can click on a movie poster and will be directed to a details page where they can read the description of the movie in it's entirety and if they so desire can click on the Edit button that directs them to an Edit page where they can edit the Title, Genre and/ or description of the selected movie, or a back to List button that will return them to the homepage.
-The submit button on the Edit page takes the user back to the details page with the updated title and description. From there the user can then navigate back to homepage which also would have been updated with their new title, genre and description.
-
-
-
-<!-- # React-Redux with Sagas
+# React-Redux with Sagas
 
 > **PLEASE COMMENT YOUR CODE.** Do not clone this repository. Instead, download the zip, extract the contents, `git init`, `git add .`, `git commit -m "initial commit - base project"` and add your remote. Please do this before you leave for the day.
 
@@ -92,4 +86,4 @@ As one of your last projects, it's possible you will be sharing this with employ
 - [ ] Allow the user to add a genre to a movie.
 - [ ] Allow the user to remove a genre from a movie.
 - [ ] Only display the top 10 movies, and allow the user to search for movie titles with a search bar on the home page (you can do this on the client side or the server side, server side is a bigger stretch, but good practice).
-- [ ] Create an `Admin` page. Add a link from the `Home` page to the `Admin` page. The page should initially display a login form (an input for username and an input for password). When the user enters the correct username (`camera`) and password (`action`), the page should display a form to add genres to the database, and a list of all of the genres with an `x` to remove them from the database. Note: This isn't actually secure, but it's pretty fun, and really good practice. -->
+- [ ] Create an `Admin` page. Add a link from the `Home` page to the `Admin` page. The page should initially display a login form (an input for username and an input for password). When the user enters the correct username (`camera`) and password (`action`), the page should display a form to add genres to the database, and a list of all of the genres with an `x` to remove them from the database. Note: This isn't actually secure, but it's pretty fun, and really good practice.

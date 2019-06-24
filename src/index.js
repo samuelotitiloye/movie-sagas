@@ -25,14 +25,13 @@ function* rootSaga() {
 }
 
 
-
 function* updateMovie(action) {
     console.log('trying to update');
     const updatedMovie = yield axios.put('/api/update', action.payload)/// sending to the server
     yield dispatch({ type: 'FETCH_MOVIES' })
     console.log('updated movie object is:', updatedMovie);
     // returns single item in the array and updates the details page with new data
-    yield dispatch({ type: 'SET_MOVIE', payload: updatedMovie.data[0] }) 
+    yield dispatch({ type: 'SET_MOVIE', payload: updatedMovie.data[0] })
 }
 
 // this.props.dispatch({type:'SINGLE_MOVIE', payload:this.props.movie.id})
