@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App/App.css';
 import {connect} from 'react-redux';
-import MovieItem from '../MovieItem/MovieItem';
+// import MovieItem from '../MovieItem/MovieItem';
 import {Link} from 'react-router-dom';
 
 
@@ -30,8 +30,8 @@ class Details extends Component {
           {this.props.reduxState.singleMovie.title}
           {this.props.reduxState.singleMovie.description}
           <img src ={this.props.reduxState.singleMovie.poster} />
-          {this.props.reduxState.genres.map(genre=><p>{genre.name}</p>)}
-          
+          {this.props.reduxState.genres.map(genre => <p>{genre.name}</p>)}
+
           <pre>
               {JSON.stringify(this.props.reduxState.genres, null, 2)}
           </pre>

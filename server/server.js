@@ -14,17 +14,22 @@ app.use(express.static('build'));
 app.put('/api/update', (req, res)=>{
     console.log('we are updating');
     const queryText = `UPDATE "movies" SET "title"=$1, "description"=$2
-    WHERE "id"=$3;`;
+    WHERE "id"=$3 RETURNING "id", "title", "description", "poster";`;
     const updateName = [req.body.title, req.body.description, req.body.id];
     pool.query(queryText, updateName)
+    .then(result=>{
+        console.log('returning the result of the update!!!!!!!!!!!', result.rows);
+        res.send(result.rows)
     })
+})
+
 
 
 // app.use('/api/movies', movieRouter);
 app.get('/api/movies', (req, res) =>{
     console.log('selecting movies');
     //query request to the database -  store
-    const queryText = 'SELECT *  FROM movies';
+    const queryText = 'SELECT *  FROM movies ORDER BY "id";'
     pool.query(queryText)
     .then((result) =>{
         console.log(result.rows);

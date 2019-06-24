@@ -28,21 +28,23 @@ function* rootSaga() {
 
 function* updateMovie(action){
     console.log('trying to update');
-    yield axios.put('/api/update', action.payload) /// sending to the server
+    const updatedMovie = yield axios.put('/api/update', action.payload)/// sending to the server
+    yield dispatch ({type:'FETCH_MOVIES'})
+    console.log('updated movie object is:', updatedMovie);
+    yield dispatch({type:'SET_MOVIE', payload: updatedMovie.data[0]}) // returns single item in the array
 }
 
 // this.props.dispatch({type:'SINGLE_MOVIE', payload:this.props.movie.id})
 
 function* movieDetail (action){
     console.log(action.payload);
-    
     try {
         console.log('hit the movie detail');
         yield dispatch({type:'SET_MOVIE', payload:action.payload})
         const detailResponse = yield axios.get(`/api/movieDetail?id=${action.payload.id}`)// action.payload becomes req.query in the server side axios get request
         yield dispatch({type:'SET_TAGS', payload:detailResponse.data});
         console.log('end of movie detail request');
-    }catch(error){
+     }catch(error){
         console.log(error);
     }
 }
