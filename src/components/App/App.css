@@ -22,7 +22,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-/* 
-#description {
-  
-} */
+
+/* targets the input fields on the edit page */
+#title {
+  border: 3px solid;
+  border-radius: 4px;
+}
+
+#genre {
+  border: 3px solid;
+  border-radius: 4px;
+}
+

@@ -24,15 +24,16 @@ class Details extends Component {
         console.log('inside movie details');
         return (
             <Grid container justify='center'>
-                <Grid item xs={4}>
+                <Grid item xs={8}>
                 {/* <div className="Details"> */}
                 <Link to='/' /><button onClick={this.handleClick}>Back to List</button>
                 <Link to='/' /><button onClick={this.handleClickEdit}>Edit</button>
-                </Grid>
                 <br/>
-                <Grid item xs={8}>
+                <br/>
                 {this.props.reduxState.singleMovie.title}
                 {this.props.reduxState.singleMovie.description}
+                <br/>
+                <br/>
                 <img src={this.props.reduxState.singleMovie.poster} alt="Movie Poster"/>
                 {this.props.reduxState.genres.map(genre => <p>{genre.name}</p>)}
                 </Grid>

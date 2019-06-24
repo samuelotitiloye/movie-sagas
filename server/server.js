@@ -12,7 +12,15 @@ app.use(bodyParser.json()); // needed for angular requests
 app.use(express.static('build'));
 
 /** ---------- ROUTES ---------- **/
-app.use('/api', router)
+app.use('/api', router) // this has been moved to it's own component
+
+
+/** ---------- START SERVER ---------- **/
+app.listen(port, function () {
+    console.log('Listening on port: ', port);
+});
+
+
 
 
 //this will update our details page
@@ -28,8 +36,6 @@ app.use('/api', router)
 //         })
 // })
 
-
-
 // app.use('/api/movies', movieRouter);
 // app.get('/api/movies', (req, res) => {
 //     console.log('selecting movies');
@@ -44,7 +50,6 @@ app.use('/api', router)
 //             res.sendStatus(500);
 //         });
 // });
-
 
 // app.use('/api/genres', genreRouter);
 // app.get('/api/genres', (req, res) => {
@@ -81,8 +86,3 @@ app.use('/api', router)
 //             res.sendStatus(500);
 //         });
 // });
-
-/** ---------- START SERVER ---------- **/
-app.listen(port, function () {
-    console.log('Listening on port: ', port);
-});

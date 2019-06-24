@@ -6,11 +6,11 @@ import MovieItem from '../MovieItem/MovieItem';
 
 
 
-//place client side get request in this component
+//place client side get request actions in this component
 class movies extends Component {
     movies = () => {
         // console.log('movies');
-        //dispatch acton with a type to run my saga that will trigger the  generator function that holds the type's data
+        //dispatch acton with a type to run the saga that will trigger the  generator function that holds the type's data
         this.props.dispatch({ type: 'FETCH_MOVIES' });
     }
 
