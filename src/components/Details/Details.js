@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../App/App.css';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 // import MovieItem from '../MovieItem/MovieItem';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
@@ -21,23 +21,23 @@ class Details extends Component {
     }
 
 
-  render() {
-    console.log('inside movie details');
-    return (
-      <div className="Details">
-        <Link to='/'/><button onClick={this.handleClick}>Back to List</button>
-        <Link to='/'/><button onClick={this.handleClickEdit}>Edit</button>
-          {this.props.reduxState.singleMovie.title}
-          {this.props.reduxState.singleMovie.description}
-          <img src ={this.props.reduxState.singleMovie.poster} />
-          {this.props.reduxState.genres.map(genre => <p>{genre.name}</p>)}
+    render() {
+        console.log('inside movie details');
+        return (
+            <div className="Details">
+                <Link to='/' /><button onClick={this.handleClick}>Back to List</button>
+                <Link to='/' /><button onClick={this.handleClickEdit}>Edit</button>
+                {this.props.reduxState.singleMovie.title}
+                {this.props.reduxState.singleMovie.description}
+                <img src={this.props.reduxState.singleMovie.poster} />
+                {this.props.reduxState.genres.map(genre => <p>{genre.name}</p>)}
 
-          <pre>
-              {JSON.stringify(this.props.reduxState.genres, null, 2)}
-          </pre>
-        </div>
-    );
-  }
+                <pre>
+                    {JSON.stringify(this.props.reduxState.genres, null, 2)}
+                </pre>
+            </div>
+        );
+    }
 }
 
 
@@ -45,7 +45,7 @@ const mapReduxStateToProps = reduxState => ({
     reduxState
 })
 
-export default connect (mapReduxStateToProps)(Details);
+export default connect(mapReduxStateToProps)(Details);
 
 
 

@@ -1,5 +1,5 @@
-import React, { Component} from 'react';
-import {connect } from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 
 
@@ -7,29 +7,29 @@ import Grid from '@material-ui/core/Grid';
 class MuiGrid extends Component {
 
     handleClick = () => {
-        this.props.dispatch({type:'FETCH_MOVIES', payload: this.props.movie });
+        this.props.dispatch({ type: 'FETCH_MOVIES', payload: this.props.movie });
     }
 
-render() {
-    return (
-        <Grid container justify="center">
-            <Grid item xs={5}>
-                <img
-                    src={this.props.movie.poster}
-                    onClick={this.handleClick}
-                    alt={this.props.movie.title} />
+    render() {
+        return (
+            <Grid container justify="center">
+                <Grid item xs={5}>
+                    <img
+                        src={this.props.movie.poster}
+                        onClick={this.handleClick}
+                        alt={this.props.movie.title} />
+                </Grid>
+                <Grid item xs={5}>
+                    <h2> {this.props.movie.title}</h2>
+                    <p>{this.props.movie.description}</p>
+                </Grid>
             </Grid>
-            <Grid item xs={5}>
-                <h2> {this.props.movie.title}</h2>
-                <p>{this.props.movie.description}</p>
-            </Grid>
-        </Grid>
-    );
-}
+        );
+    }
 }
 
 
-const mapReduxStateToProps = reduxState => ({reduxState});
+const mapReduxStateToProps = reduxState => ({ reduxState });
 export default connect(mapReduxStateToProps)(MuiGrid);
 
 

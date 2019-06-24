@@ -75,3 +75,22 @@ JOIN "genres" ON "movie_genre"."genre_id" = "genres"."id";
 SELECT * FROM "movie_genre";
 
 SELECT * FROM "movies" WHERE "id"=2;
+
+--this will become req.query
+SELECT "genres"."name" FROM "movies" 
+JOIN "movie_genre" ON "movies"."id" = "movie_genre"."movie_id"
+JOIN "genres" ON "movie_genre"."genre_id" = "genres"."id"
+WHERE "movies"."id"='1';
+
+
+
+
+SELECT * FROM "movie_genre";
+
+SELECT * FROM "movies" WHERE "id"=2;
+
+
+UPDATE "movies" SET "title"='$1' "description"='S1'
+WHERE"id"='$3';
+
+SELECT * FROM "movies";

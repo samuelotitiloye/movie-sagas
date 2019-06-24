@@ -26,52 +26,52 @@ function* rootSaga() {
 
 
 
-function* updateMovie(action){
+function* updateMovie(action) {
     console.log('trying to update');
     const updatedMovie = yield axios.put('/api/update', action.payload)/// sending to the server
-    yield dispatch ({type:'FETCH_MOVIES'})
+    yield dispatch({ type: 'FETCH_MOVIES' })
     console.log('updated movie object is:', updatedMovie);
-    yield dispatch({type:'SET_MOVIE', payload: updatedMovie.data[0]}) // returns single item in the array
+    yield dispatch({ type: 'SET_MOVIE', payload: updatedMovie.data[0] }) // returns single item in the array
 }
 
 // this.props.dispatch({type:'SINGLE_MOVIE', payload:this.props.movie.id})
 
-function* movieDetail (action){
+function* movieDetail(action) {
     console.log(action.payload);
     try {
         console.log('hit the movie detail');
-        yield dispatch({type:'SET_MOVIE', payload:action.payload})
+        yield dispatch({ type: 'SET_MOVIE', payload: action.payload })
         const detailResponse = yield axios.get(`/api/movieDetail?id=${action.payload.id}`)// action.payload becomes req.query in the server side axios get request
-        yield dispatch({type:'SET_TAGS', payload:detailResponse.data});
+        yield dispatch({ type: 'SET_TAGS', payload: detailResponse.data });
         console.log('end of movie detail request');
-     }catch(error){
+    } catch (error) {
         console.log(error);
     }
 }
 
 
 // axios client side get request
-function* fetchMovies (){
+function* fetchMovies() {
     try {
         console.log('hit fetch movies');
         const movieResponse = yield axios.get('/api/movies')
         // yield axios.get('/')
-        yield dispatch ({type:'SET_MOVIES', payload:movieResponse.data});
+        yield dispatch({ type: 'SET_MOVIES', payload: movieResponse.data });
         console.log('end of fetch movies request');
-    }catch(error){
+    } catch (error) {
         console.log(error);
     }
-} 
+}
 
 //create axios genre get request
-function* fetchGenre  () {
+function* fetchGenre() {
     try {
         console.log('hit fetch genre');
         const genreResponse = yield axios.get('/api/genres')
         //yeild axios
-        yield dispatch ({type:'SET_TAGS', payload:genreResponse.data});
-        console.log('end of fetch genre request');  
-    }catch(error){
+        yield dispatch({ type: 'SET_TAGS', payload: genreResponse.data });
+        console.log('end of fetch genre request');
+    } catch (error) {
         console.log(error);
     }
 }
@@ -122,12 +122,12 @@ const genres = (state = [], action) => {
 }
 
 // use to return SINGLE movie from the server
-const singleMovie = (state = {}, action) =>{
-    switch(action.type) {
+const singleMovie = (state = {}, action) => {
+    switch (action.type) {
         case 'SET_MOVIE':
             return action.payload
-            default:
-                return state;
+        default:
+            return state;
     }
 }
 
@@ -145,6 +145,6 @@ const storeInstance = createStore(
 // Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);
 
-ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, 
+ReactDOM.render(<Provider store={storeInstance}><App /></Provider>,
     document.getElementById('root'));
 registerServiceWorker();

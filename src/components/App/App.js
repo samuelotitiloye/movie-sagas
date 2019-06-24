@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {HashRouter as Router, Route} from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Movies from '../Movies/movies';
 import Details from '../Details/Details';
@@ -11,12 +11,12 @@ class App extends Component {
   render() {
     return (
       <Router>
-      <div className="App">
-        <p>PRIME MOVIE SAGAS</p>
-        <Route path="/" exact component={Movies}/>
-        <Route path="/details" component={Details}/>
-        <Route path="/edit" component={Edit}/>
-      </div>
+        <div className="App">
+          <p>PRIME MOVIE SAGAS</p>
+          <Route path="/" exact component={Movies} />
+          <Route path="/details" component={Details} />
+          <Route path="/edit" component={Edit} />
+        </div>
       </Router>
     );
   }
