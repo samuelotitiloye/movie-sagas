@@ -18,9 +18,13 @@ class MovieItem extends Component {
     render() {
         return (
             <Grid container justify='center'>
-                <Grid item className="MovieItem">
-                    <li key={this.props.movie.id}>{this.props.movie.title}<br />{this.props.movie.description}</li>
-                    <Link to="/details"><img onClick={this.handleClick} src={this.props.movie.poster} alt="database movie posters" /></Link>
+                <Grid item xs={6}>
+                <Link to="/details"><img onClick={this.handleClick} src={this.props.movie.poster} alt="database movie posters" /></Link><br/>
+                </Grid>
+                <Grid item xs={6}>
+                {/* {this.props.movie.id}> */}
+                <h2>{this.props.movie.title}</h2>
+                <p>{this.props.movie.description}</p>
                 </Grid>
             </Grid>
         );

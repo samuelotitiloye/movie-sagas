@@ -3,11 +3,11 @@ import '../App/App.css';
 import { connect } from 'react-redux';
 // import MovieItem from '../MovieItem/MovieItem';
 import { Link } from 'react-router-dom';
+import Grid from '@material-ui/core/Grid';
 
 
 
 class Details extends Component {
-
     handleClick = () => {
         console.log('take me back home');
         // i needed to add push to the history in order to return to the home page
@@ -20,26 +20,30 @@ class Details extends Component {
         this.props.history.push('/edit');
     }
 
-
     render() {
         console.log('inside movie details');
         return (
-            <div className="Details">
+            <Grid container justify='center'>
+                <Grid item xs={4}>
+                {/* <div className="Details"> */}
                 <Link to='/' /><button onClick={this.handleClick}>Back to List</button>
                 <Link to='/' /><button onClick={this.handleClickEdit}>Edit</button>
+                </Grid>
+                <br/>
+                <Grid item xs={8}>
                 {this.props.reduxState.singleMovie.title}
                 {this.props.reduxState.singleMovie.description}
-                <img src={this.props.reduxState.singleMovie.poster} />
+                <img src={this.props.reduxState.singleMovie.poster} alt="Movie Poster"/>
                 {this.props.reduxState.genres.map(genre => <p>{genre.name}</p>)}
-
-                <pre>
+                </Grid>
+                {/* <pre>
                     {JSON.stringify(this.props.reduxState.genres, null, 2)}
-                </pre>
-            </div>
+                </pre> */}
+            {/* </div> */}
+            </Grid>
         );
     }
 }
-
 
 const mapReduxStateToProps = reduxState => ({
     reduxState
@@ -51,9 +55,6 @@ export default connect(mapReduxStateToProps)(Details);
 
 // {this.props.reduxState.movies.map(movie => 
 //     {return  <MovieItem movie={movie} />})}
-
-
-
 /* {JSON.stringify(this.props.reduxState.singleMovie[0].title)}; */
 // class Details extends Component {
 //<img src ={this.props.reduxState.singleMovie.poster} />

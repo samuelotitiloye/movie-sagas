@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import './App.css';
 import { connect } from 'react-redux';
 import MovieItem from '../MovieItem/MovieItem';
-import Grid from '@material-ui/core/Grid';
+// import Grid from '@material-ui/core/Grid';
 
 
 
@@ -28,13 +28,15 @@ class movies extends Component {
     render() {
         return (
             <>
-                <Grid container justify='center'>
+                {/* <Grid container justify='center'> */}
+                    {/* <Grid item xs={6}> */}
                     <div>
                         {/* <button onClick={()=>{this.props.history.push('/details')}}>Details</button>
                             <button onClick={()=>{this.props.history.push('/edit')}}>Edit</button> */}
                         {this.props.reduxState.movies.map(movie => { return <MovieItem movie={movie} /> })}
                     </div>
-                </Grid>
+                    {/* </Grid> */}
+                {/* </Grid> */}
 
                 {/* <Grid item xs={5}>
                     <img

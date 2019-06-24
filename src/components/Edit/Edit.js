@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import '../App/App.css';
 import {Link} from 'react-router-dom';
+import Grid from '@material-ui/core/Grid';
 
 
 class Edit extends Component {
@@ -37,12 +38,16 @@ handleCancel = () => {
       <div className="Edit">
         <Link to={'/details'}><button onClick ={this.handleCancel}>Cancel</button></Link>
         <button onClick ={this.handleSubmit}>Submit</button>
+        <Grid container justtify ='center'>
+          <Grid item xs={6}>
         <input value={this.state.title} id='title' onChange={this.handleChange} placeholder="movie title"></input>
         <textarea rows="10" cols="80" value={this.state.description} id='description' onChange={this.handleChange}></textarea>
+        </Grid>
+        </Grid>
         {/* <input value={this.state.description} id ='description' onChange={this.handleChange} placeholder="edit details"></input> */}
-        <pre>
+        {/* <pre>
         {JSON.stringify(this.props.reduxState.singleMovie, null, 2)}
-        </pre> 
+        </pre>  */}
       </div>
     );
   }
@@ -50,3 +55,8 @@ handleCancel = () => {
 
 const mapReduxStateToProps = reduxState => ({reduxState});
 export default connect(mapReduxStateToProps)(Edit);
+
+//line 33 lines to my details page so upon button click returns me to the details page
+//line 34 calls the handlesubmit function which updates state, 
+//pushes me to the details page and runs calls FETCH_MOVIES
+// 
