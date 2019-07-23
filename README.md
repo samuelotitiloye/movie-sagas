@@ -1,95 +1,32 @@
-This application will allow a user to interact with movies' website. Upon arriving at the sight there is a list of movies with different genres to select from. 
+### Movie Project
+This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
+
+
+### Description
+
+**My Flix**
+My Flix is an application that will allow a user to interact with movies' website. Upon arriving at the sight there is a list of movies with different genres to select from. 
 The user can click on a movie poster and will be directed to a details page where they can read the description of the movie in it's entirety and if they so desire can click on the Edit button that directs them to an Edit page where they can edit the Title, Genre and/ or description of the selected movie, or a back to List button that will return them to the homepage.
 The submit button on the Edit page takes the user back to the details page with the updated title and description. From there the user can then navigate back to homepage which also would have been updated with their new title, genre and description.
 
+### SETUP
 
+Follow the instructions below to run the project locally.
 
-<!-- # React-Redux with Sagas
+### Install all dependencies for the project.
 
-> **PLEASE COMMENT YOUR CODE.** Do not clone this repository. Instead, download the zip, extract the contents, `git init`, `git add .`, `git commit -m "initial commit - base project"` and add your remote. Please do this before you leave for the day.
+npm install
 
-For this weekend challenge you'll be building a movie application!  
+### Start the server.
 
-## Database Setup
+npm run server
 
-1. Create a database named `saga_movies_weekend`
-2. Run the queries from `database.sql` on the `saga_movies_weekend` database.
-3. You will need to create the junction table between the `movies` and `genres` tables!
+### Now that the server is running, start the react client side app.
 
-## Install Dependencies
+npm run client
 
-1. `npm install`
-2. `npm run server`
-3. `npm run client`
+For full functionality, you will need to create a local database and tables using the provided `database.sql` file. 
 
-## Notes
+## Authors:
 
-### Tags
-We've given you some starter genres in the database. Feel free to change or add some with Postico.
- 
-### Movies
-We've added some movie posters in the `public/images` folder, and the database is set up to use them.
-
-### Relationships
-Genres can be applied to many different movies. Movies can have multiple genres. This is Many-to-Many! Junction Table time!
-
-## Video Wireframe
-
-[video ![Home Wireframe](/wireframes/home-wireframe.png)](https://vimeo.com/343530927)
-
-## Feature List
-
-> NOTE: Start by taking inventory of the existing code. Part of the work for setting up sagas has been done for you.
-
-### Home / List Page
-
-This should display all of the movies in the movie database. When a movie poster is clicked, a user should be brought to the `/details` view.
-
-### Details Page
-
-This should show all details **including genres**, for the selected movie.
-
-The details page should have the buttons:
-
-- `Back to List` button, which should bring the user to the Home Page
-- `Edit` button, which should bring the user to the Edit Page
-
-> Base functionality does not require the movie details to load correctly after refresh of the browser.
-
-### Edit Page
-
-This should show:
-
-- an input field (for changing the movie title), for the selected movie.
-- a textarea (for changing the movie description)
-
-The details page should have the buttons:
-
-- `Cancel` button, which should bring the user to the Details Page
-- `Save` button, which should update the title and description in the database and bring the user to the Details Page
-
-> Base functionality does not require the current values (the existing movie title and description) to populate in the input and textarea.
-
-> Base functionality does not require the movie information to load correctly after refresh of the browser.
-
-### General Tasks
-
-As one of your last projects, it's possible you will be sharing this with employers, so be sure to follow best practices and make it look good!
-
-- [ ] Invest some time in styling it up!
-    - [ ] Research grids for your movie posters on the Movie List page
-    - [ ] Add route change animations
-- [ ] Commit your code frequently! You should have at 15+ commits on a project of this size. Use branches to help break down your features.
-- [ ] Comment your code.
-- [ ] Update this README to include a description of the project in your own words.
-
-## Stretch Goals
-
-- [ ] Display the current values in the input (title) and textarea (description) on the Edit Page
-- [ ] Display all genres on movie list page. Research [array_agg](https://stackoverflow.com/questions/43458174/how-to-save-and-return-javascript-object-with-subarray-in-normalized-sql) to make this possible.
-- [ ] Move sagas and reducers out of your `index.js` and into separate files (ideally in `src/redux/reducers` and `src/redux/sagas` folders).
-- [ ] Allow the user to refresh the details or edit page. The url for the details page would be something like `/details/1` for movie with id of `1`. Research [react router params](https://reacttraining.com/react-router/web/example/url-params).
-- [ ] Allow the user to add a genre to a movie.
-- [ ] Allow the user to remove a genre from a movie.
-- [ ] Only display the top 10 movies, and allow the user to search for movie titles with a search bar on the home page (you can do this on the client side or the server side, server side is a bigger stretch, but good practice).
-- [ ] Create an `Admin` page. Add a link from the `Home` page to the `Admin` page. The page should initially display a login form (an input for username and an input for password). When the user enters the correct username (`camera`) and password (`action`), the page should display a form to add genres to the database, and a list of all of the genres with an `x` to remove them from the database. Note: This isn't actually secure, but it's pretty fun, and really good practice. -->
+Samuel Titiloye - Frontend UI, server routing, and database queries
