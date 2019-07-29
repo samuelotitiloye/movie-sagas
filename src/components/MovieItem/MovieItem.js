@@ -19,7 +19,7 @@ class MovieItem extends Component {
         return (
             <Grid container justify='center'>
                 <Grid item xs={6}>
-                <Link to="/details"><img onClick={this.handleClick} src={this.props.movie.poster} alt="database movie posters" /></Link><br/>
+                <Link to="/details"><img onClick={this.handleClick}  id="moviePosters" src={this.props.movie.poster} alt="database movie posters" /></Link><br/>
                 </Grid>
                 <Grid item xs={6}>
                 {/* {this.props.movie.id}> */}

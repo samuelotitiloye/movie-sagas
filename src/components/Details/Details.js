@@ -34,7 +34,7 @@ class Details extends Component {
                 {this.props.reduxState.singleMovie.description}
                 <br/>
                 <br/>
-                <img src={this.props.reduxState.singleMovie.poster} alt="Movie Poster"/>
+                <img src={this.props.reduxState.singleMovie.poster} id="poster" alt="Movie Poster"/>
                 {this.props.reduxState.genres.map(genre => <p>{genre.name}</p>)}
                 </Grid>
                 {/* <pre>

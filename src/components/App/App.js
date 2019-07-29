@@ -10,14 +10,18 @@ class App extends Component {
   // Renders the entire app on the DOM
   render() {
     return (
+      <>
+      <header id="myFlix">
+        MY FLIX
+      </header>
       <Router>
         <div className="App">
-          <h4>MY FLIX</h4>
           <Route path="/" exact component={Movies} />
           <Route path="/details" component={Details} />
           <Route path="/edit" component={Edit} />
         </div>
       </Router>
+    </>
     );
   }
 }

@@ -137,3 +137,26 @@
   border-radius: 4px;
   box-sizing: border-box;
 }
+
+#poster:hover{
+  box-shadow: 0 12px 16px 0 
+  rgba(0,0,0,0.24),0 17px 50px 0
+  rgba(0,0,0,0.19);
+}
+
+#moviePosters:hover {
+  box-shadow: 0 12px 16px 0 
+  rgba(0,0,0,0.24),0 17px 50px 0
+  rgba(0,0,0,0.19);
+}
+
+#myFlix{
+  background-color: #fdf7fc;
+  text-align: center;
+  font-weight: 900;
+  font-stretch: expanded;
+  border: 40px solid #fdf7fc;
+  padding: 12px 12px;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
