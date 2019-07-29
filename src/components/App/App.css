@@ -34,3 +34,106 @@
   border-radius: 4px;
 }
 
+
+#backToList {
+  background-color: #4caf50;
+  border: none;
+  columns: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#backToList:hover {
+  box-shadow: 0 12px 16px 0 
+  rgba(0,0,0,0.24),0 17px 50px 0
+  rgba(0,0,0,0.19); 
+}
+
+#editButton {
+  background-color: #4caf50;
+  border: none;
+  columns: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 103.71px;
+}
+
+#editButton:hover {
+  box-shadow: 0 12px 16px 0 
+  rgba(0,0,0,0.24),0 17px 50px 0
+  rgba(0,0,0,0.19);
+}
+
+#cancelButton {
+  background-color: #4caf50;
+  border: none;
+  columns: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 103.71px;
+}
+
+#cancelButton:hover{
+  box-shadow: 0 12px 16px 0 
+  rgba(0,0,0,0.24),0 17px 50px 0
+  rgba(0,0,0,0.19);
+}
+
+#submitButton {
+  background-color: #4caf50;
+  border: none;
+  columns: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 103.71px; 
+}
+
+#submitButton:hover{
+  box-shadow: 0 12px 16px 0 
+  rgba(0,0,0,0.24),0 17px 50px 0
+  rgba(0,0,0,0.19);
+}
+
+#title {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#genre {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}

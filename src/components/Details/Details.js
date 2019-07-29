@@ -26,8 +26,8 @@ class Details extends Component {
             <Grid container justify='center'>
                 <Grid item xs={8}>
                 {/* <div className="Details"> */}
-                <Link to='/' /><button onClick={this.handleClick}>Back to List</button>
-                <Link to='/' /><button onClick={this.handleClickEdit}>Edit</button>
+                <Link to='/' /><button onClick={this.handleClick} id="backToList">Back to List</button>
+                <Link to='/' /><button onClick={this.handleClickEdit} id="editButton">Edit</button>
                 <br/>
                 <br/>
                 {this.props.reduxState.singleMovie.title}

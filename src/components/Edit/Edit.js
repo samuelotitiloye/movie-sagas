@@ -39,8 +39,8 @@ handleCancel = () => {
   render() {
     return (
         <div className="Edit">
-          <Link to={'/details'}><button onClick ={this.handleCancel}>Cancel</button></Link>
-          <button onClick ={this.handleSubmit}>Submit</button>
+          <Link to={'/details'}><button onClick ={this.handleCancel} id="cancelButton">Cancel</button></Link>
+          <button onClick ={this.handleSubmit} id="submitButton">Submit</button>
           <br/> 
           <input value={this.state.title} id='title' onChange={this.handleChange} placeholder="movie title"></input>
           <input value={this.state.genre} id='genre' onChange={this.handleChange} placeholder="movie genre"></input>
